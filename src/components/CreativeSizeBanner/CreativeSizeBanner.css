@@ -13,10 +13,16 @@
 
 .addSizeForm {
   display: none;
+  align-items: center;
 }
 
-.addSizeForm input, .addSizeForm button {
+.addSizeForm input, .addSizeForm button, .addSizeForm span {
   margin:8px;
+}
+
+.addSizeFormClose {
+  font-weight: bold;
+  cursor: pointer;
 }
 
 .addSizeForm input {
