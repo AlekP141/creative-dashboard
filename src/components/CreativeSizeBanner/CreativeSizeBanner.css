@@ -1,0 +1,24 @@
+.creativeSizeList {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.creativeSize, .addNewCreativeSize {
+  margin: 4px;
+  padding: 4px;
+  cursor: pointer;
+}
+
+.addSizeForm {
+  display: none;
+}
+
+.addSizeForm input, .addSizeForm button {
+  margin:8px;
+}
+
+.addSizeForm input {
+  width: 64px;
+}

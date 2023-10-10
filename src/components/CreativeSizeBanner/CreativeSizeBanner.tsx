@@ -1,4 +1,5 @@
 import { FormEvent, useState, useRef } from "react"
+import "./CreativeSizeBanner.css"
 
 const CreativeSizeBanner = () => {
 
@@ -27,8 +28,11 @@ const CreativeSizeBanner = () => {
         {creativeSizes.map((size) => {
           return <li key={size} className="creativeSize">{size}</li>
         })}
-        <li className="addNewCreativeSize">+</li>
-        <form onSubmit={addNewCreativeHandler}>
+        <li className="addNewCreativeSize" onClick={() => {
+          const addSizeForm = document.querySelector(".addSizeForm") as HTMLElement
+          addSizeForm ? addSizeForm.style.display = "block" : null
+        }}>+</li>
+        <form className="addSizeForm" onSubmit={addNewCreativeHandler}>
           <input ref={creativeSizeHeightRef} type="text" placeholder="Height"></input>
           <input ref={creativeSizeWidthRef} type="text" placeholder="Width"></input>
           <button type="submit">Add</button>

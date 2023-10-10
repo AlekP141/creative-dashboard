@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './App.css'
-import CreativeSizeBanner from './components/CreativeSizeBanner'
+import CreativeSizeBanner from './components/CreativeSizeBanner/CreativeSizeBanner'
 
 function App() {
   const [count, setCount] = useState(0)
