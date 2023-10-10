@@ -1,4 +1,4 @@
-import "./CreativeContainer.css"
+import "./CreativeContainer.scss"
 import { ReactNode } from "react"
 
 

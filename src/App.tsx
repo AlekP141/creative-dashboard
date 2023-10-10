@@ -1,13 +1,24 @@
-import { useState } from "react";
-import "./App.css";
+import {useState } from "react";
+import "./App.scss";
 import CreativeSizeBanner from "./components/CreativeSizeBanner/CreativeSizeBanner";
 import CreativeContainer from "./components/CreativeContainer/CreativeContainer";
 import CreativeOptions from "./components/CreativeOptions/CreativeOptions";
+import CampaignSelector from "./components/CampaignSelector/CampaignSelector";
 
 function App() {
   const [selectedSize, setSelectedSize] = useState("");
+  const campaigns = ["porsche-traffic", "tesla"]
+  const [selectedCampaign, setSelectedCampaign] = useState(campaigns[0])
+
   return (
     <>
+      <CampaignSelector
+      campaigns={campaigns}
+      selectedCampaign={selectedCampaign}
+      onSelectedCampaign={(campaign:string) => {
+        setSelectedCampaign(campaign)
+      }}
+      />
       <CreativeSizeBanner
         selectedSize={selectedSize}
         onSelectedSize={(size: string) => {

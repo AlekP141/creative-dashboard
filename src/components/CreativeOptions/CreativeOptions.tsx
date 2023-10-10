@@ -1,4 +1,4 @@
-import "./CreativeOptions.css"
+import "./CreativeOptions.scss"
 
 const CreativeOptions = () => {
 return (

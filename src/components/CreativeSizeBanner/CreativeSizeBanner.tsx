@@ -1,5 +1,5 @@
 import { FormEvent, useState, useRef, useEffect } from "react";
-import "./CreativeSizeBanner.css";
+import "./CreativeSizeBanner.scss";
 
 interface ICreativeSizeBanner {
   selectedSize: string;
@@ -30,7 +30,7 @@ const CreativeSizeBanner = ({
 
   useEffect(() => {
     onSelectedSize(creativeSizes[0]);
-  }, []);
+  }, );
 
   return (
     <div className="creativeSizeContainer">
