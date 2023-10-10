@@ -1,0 +1,7 @@
+.containerone {
+  position: relative;
+  margin: 0 auto;
+  height: 400px;
+  width: 600px;
+  background-color: red;
+}

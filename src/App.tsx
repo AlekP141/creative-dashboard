@@ -14,10 +14,9 @@ function App() {
           setSelectedSize(size);
         }}
       />
-      <div className="creativesEditor">
-        <CreativeContainer />
-        <CreativeOptions />
-      </div>
+        <CreativeContainer>
+          <CreativeOptions />
+        </CreativeContainer>
     </>
   );
 }
