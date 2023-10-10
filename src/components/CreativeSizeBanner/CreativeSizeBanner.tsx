@@ -30,7 +30,7 @@ const CreativeSizeBanner = ({
 
   useEffect(() => {
     onSelectedSize(creativeSizes[0]);
-  }, );
+  });
 
   return (
     <div className="creativeSizeContainer">
@@ -41,7 +41,9 @@ const CreativeSizeBanner = ({
             <li
               key={size}
               style={{ backgroundColor: isSelected ? "blue" : "yellow" }}
-              onClick={() => {onSelectedSize(size)}}
+              onClick={() => {
+                onSelectedSize(size);
+              }}
               className="creativeSize"
             >
               {size}

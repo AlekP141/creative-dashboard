@@ -7,7 +7,7 @@ import CampaignSelector from "./components/CampaignSelector/CampaignSelector";
 
 function App() {
   const [selectedSize, setSelectedSize] = useState("");
-  const campaigns = ["porsche-traffic", "tesla"]
+  const campaigns = ["porsche-traffic", "audi"]
   const [selectedCampaign, setSelectedCampaign] = useState(campaigns[0])
 
   return (
