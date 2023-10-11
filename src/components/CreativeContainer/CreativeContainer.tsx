@@ -18,7 +18,7 @@ const fileValidation = async (size: string, campaign: string): Promise<boolean> 
 };
 
 const CreativeContainer = ({ children, selectedCampaign, selectedSize }: ICreativeContainer) => {
-  const [isValidFile, setIsValidFile] = useState<boolean>(false);
+  const [isValidFile, setIsValidFile] = useState(false);
 
   useEffect(() => {
     const validateFile = async () => {
@@ -29,14 +29,37 @@ const CreativeContainer = ({ children, selectedCampaign, selectedSize }: ICreati
     validateFile();
   }, [selectedCampaign, selectedSize]);
 
+
+  // Test case for how to work the CSS options tab
+  useEffect(() => {
+    setTimeout(() => {
+      const iframe = document.getElementById("iframe") as HTMLIFrameElement
+      // Check if the iframe is loaded
+      if (iframe && iframe.contentDocument) {
+        const iframeDocument = iframe.contentDocument;
+        const elementInsideIframe = iframeDocument.querySelector('.test') as HTMLElement;
+
+        // Modify CSS properties of the element inside the iframe
+        if (elementInsideIframe) {
+          elementInsideIframe.style.color = 'red';
+          elementInsideIframe.style.fontSize = '20px';
+          // ... other CSS modifications
+        }
+      }
+    }, 100);
+  }, [selectedSize]);
+
+
   return (
-    <div className="containerone">
+    <div className="creativeFrame">
       {children}
+      <div className="creativeContainer">
       {isValidFile ? (
-        <iframe src={`/campaigns/${selectedCampaign}/${selectedSize}-${selectedCampaign}.html`} />
-      ) : (
-        <h1>Sorry, this file cannot be found.</h1>
-      )}
+        <iframe id="iframe" src={`/campaigns/${selectedCampaign}/${selectedSize}-${selectedCampaign}.html`} />
+        ) : (
+          <h2>Error: No file found in this size.</h2>
+          )}
+      </div>
     </div>
   );
 };

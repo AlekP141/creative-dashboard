@@ -1,9 +1,19 @@
 @import "../../colors.scss";
 
-.containerone {
+.creativeFrame {
   position: relative;
   margin: 0 auto;
   height: 400px;
   width: 600px;
-  background-color: red;
+  background-color: white;
+  border: 1px solid $black;
+}
+
+.creativeContainer {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
