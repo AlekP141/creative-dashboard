@@ -25,7 +25,9 @@ function App() {
           setSelectedSize(size);
         }}
       />
-        <CreativeContainer>
+        <CreativeContainer
+        selectedCampaign={selectedCampaign}
+        selectedSize={selectedSize}>
           <CreativeOptions />
         </CreativeContainer>
     </>

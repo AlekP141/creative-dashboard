@@ -30,7 +30,7 @@ const CreativeSizeBanner = ({
 
   useEffect(() => {
     onSelectedSize(creativeSizes[0]);
-  });
+  }, []);
 
   return (
     <div className="creativeSizeContainer">
