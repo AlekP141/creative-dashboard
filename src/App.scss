@@ -1,18 +1,24 @@
 @import "./colors.scss";
 
-body {
-  height: 100vh;
-  width: 100vw;
-  background-color: $lightgrey;
-  color: $black;
+* {
+  box-sizing: border-box;
 }
 
-#root {
-  margin: 0 auto;
-  padding: 2rem;
+body {
+  height: 100%;
+  background-color: $lightgrey;
+  color: $black;
+  margin: 0;
 }
 
 h1 {
   font-size: 2.4rem;
   line-height: 1.1;
+}
+
+.layoutDiv {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 8px 8px 16px 8px;
 }

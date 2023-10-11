@@ -1,10 +1,12 @@
 @import "../../colors.scss";
 
 .creativeFrame {
+  flex-grow: 1;
   position: relative;
   margin: 0 auto;
-  height: 400px;
-  width: 600px;
+  height: 100%;
+  min-width: 600px;
+  max-width: 800px;
   background-color: white;
   border: 1px solid $black;
 }
@@ -16,4 +18,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+#iframe {
+  height: 100%;
+  width: 100%;
+  overflow: auto !important;
+  border: none;
 }

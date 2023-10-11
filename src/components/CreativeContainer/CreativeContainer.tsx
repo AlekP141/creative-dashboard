@@ -22,8 +22,10 @@ const CreativeContainer = ({ children, selectedCampaign, selectedSize }: ICreati
 
   useEffect(() => {
     const validateFile = async () => {
-      const isValid = await fileValidation(selectedSize, selectedCampaign);
-      setIsValidFile(isValid);
+      if (selectedSize){
+        const isValid = await fileValidation(selectedSize, selectedCampaign);
+        setIsValidFile(isValid);
+      }
     };
 
     validateFile();
@@ -32,6 +34,7 @@ const CreativeContainer = ({ children, selectedCampaign, selectedSize }: ICreati
 
   // Test case for how to work the CSS options tab
   useEffect(() => {
+    {console.log(`/campaigns/${selectedCampaign}/${selectedSize}-${selectedCampaign}.html`)}
     setTimeout(() => {
       const iframe = document.getElementById("iframe") as HTMLIFrameElement
       // Check if the iframe is loaded
@@ -43,11 +46,11 @@ const CreativeContainer = ({ children, selectedCampaign, selectedSize }: ICreati
         if (elementInsideIframe) {
           elementInsideIframe.style.color = 'red';
           elementInsideIframe.style.fontSize = '20px';
-          // ... other CSS modifications
         }
       }
     }, 100);
   }, [selectedSize]);
+
 
 
   return (

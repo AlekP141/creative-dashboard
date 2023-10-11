@@ -11,7 +11,7 @@ function App() {
   const [selectedCampaign, setSelectedCampaign] = useState(campaigns[0])
 
   return (
-    <>
+    <div className="layoutDiv">
       <CampaignSelector
       campaigns={campaigns}
       selectedCampaign={selectedCampaign}
@@ -30,7 +30,7 @@ function App() {
         selectedSize={selectedSize}>
           <CreativeOptions />
         </CreativeContainer>
-    </>
+    </div>
   );
 }
 
