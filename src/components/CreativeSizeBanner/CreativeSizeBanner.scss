@@ -8,10 +8,28 @@
   padding: 0;
 }
 
+.creativeSize {
+  border: 1px solid $green;
+  border-radius: 0.5rem;
+  padding: 4px 8px;
+  color: white;
+  font-weight: bold;
+  background-color: $green;
+  letter-spacing: 0.7px;
+}
+
 .creativeSize, .addNewCreativeSize {
   margin: 4px;
-  padding: 4px;
   cursor: pointer;
+}
+
+.selectedSize {
+  background-color: $green;
+}
+
+.addNewCreativeSize {
+  font-weight: bold;
+  color: $darkgrey;
 }
 
 .addSizeForm {
@@ -19,8 +37,8 @@
   align-items: center;
 }
 
-.addSizeForm input, .addSizeForm button, .addSizeForm span {
-  margin:8px;
+.addSizeForm input, .addSizeForm button, .addSizeForm {
+  margin:4px;
 }
 
 .addSizeFormClose {

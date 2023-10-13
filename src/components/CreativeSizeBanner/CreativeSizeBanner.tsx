@@ -40,11 +40,11 @@ const CreativeSizeBanner = ({
           return (
             <li
               key={size}
-              style={{ backgroundColor: isSelected ? "blue" : "yellow" }}
+              // style={{ backgroundColor: isSelected ? "blue" : "yellow" }}
               onClick={() => {
                 onSelectedSize(size);
               }}
-              className="creativeSize"
+              className={`creativeSize ${isSelected ? "selectedSize" : ""}`}
             >
               {size}
             </li>
@@ -77,8 +77,8 @@ const CreativeSizeBanner = ({
             placeholder="Width"
           ></input>
           <button type="submit">Add</button>
-          <span
-            className="addSizeFormClose"
+          <button
+            className="formClose"
             onClick={() => {
               const addSizeForm = document.querySelector(
                 ".addSizeForm"
@@ -91,7 +91,7 @@ const CreativeSizeBanner = ({
             }}
           >
             x
-          </span>
+          </button>
         </form>
       </ul>
     </div>

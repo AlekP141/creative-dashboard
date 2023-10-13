@@ -1,7 +1,14 @@
 @import "./colors.scss";
 
+@font-face {
+  font-family: "Satoshi";
+  src: url("/src/assets/fonts/Satoshi-Variable.ttf");
+}
+
+
 * {
   box-sizing: border-box;
+  font-family: "Satoshi", sans-serif;
 }
 
 body {

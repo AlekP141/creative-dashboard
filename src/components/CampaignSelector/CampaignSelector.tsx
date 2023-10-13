@@ -1,4 +1,5 @@
 import { FormEvent, useRef } from "react";
+import "./CampaignSelector.scss";
 
 interface ICampaignSelector {
   campaigns: string[];
@@ -20,19 +21,47 @@ const CampaignSelector = ({
   };
 
   return (
-    <>
-      <h2 className="campaignTitle">{selectedCampaign}</h2>
-      <p className="changeSelection">Change Selection</p>
-      <form className="campaignForm" onSubmit={changeCampaignHandler}>
-        <input ref={campaignRef} list="campaigns" name="campaign" />
-        <datalist id="campaigns">
-          {campaigns.map((name) => {
-            return <option key={name} value={name}></option>;
-          })}
-        </datalist>
-        <button type="submit">Select</button>
-      </form>
-    </>
+    <div className="campaignContainer">
+      <h1 className="campaignTitle">{selectedCampaign}</h1>
+      <button
+        className="changeSelection"
+        onClick={(e) => {
+          const target = e.target as HTMLParagraphElement;
+          target.style.display = "none";
+          const form = document.querySelector(
+            ".campaignFormContainer"
+          ) as HTMLDivElement;
+          if (form) {
+            form.style.display = "flex";
+          }
+        }}
+      >
+        Change Selection
+      </button>
+      <div className="campaignFormContainer">
+        <form className="campaignForm" onSubmit={changeCampaignHandler}>
+          <input ref={campaignRef} list="campaigns" name="campaign" />
+          <datalist id="campaigns">
+            {campaigns.map((name) => {
+              return <option key={name} value={name}></option>;
+            })}
+          </datalist>
+          <button type="submit">Select</button>
+        </form>
+        <button className="formClose" onClick={(e) => {
+          const formContainer = document.querySelector(".campaignFormContainer") as HTMLFormElement;
+          if (formContainer) {
+            formContainer.style.display = "none"
+          }
+          const changeSelection = document.querySelector(".changeSelection") as HTMLButtonElement;
+          if (changeSelection) {
+            changeSelection.style.display = "inline-block"
+          }
+        }}>
+          x
+        </button>
+      </div>
+    </div>
   );
 };
 

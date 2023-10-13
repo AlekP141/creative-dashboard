@@ -1,0 +1,39 @@
+@import "../../colors.scss";
+
+.campaignTitle {
+  margin-bottom: 0.75rem;
+}
+
+.campaignContainer {
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.changeSelection {
+  text-decoration: underline;
+  color: $green;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  font-size: 16px;
+}
+
+.campaignFormContainer {
+  display: none;
+  justify-content: center;
+  align-items: center;
+
+  & button {
+    cursor: pointer;
+  }
+
+}
+ .formClose {
+  background-color: transparent;
+  border: none;
+  font-weight: bold;
+  font-size: 16px;
+  color: $darkgrey;
+  cursor: pointer;
+ }
