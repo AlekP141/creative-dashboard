@@ -2,7 +2,9 @@ import "./CreativeOptions.scss"
 
 const CreativeOptions = () => {
 return (
-<div className="optionstest"></div>
+<div className="optionsContainer">
+  <h2 className="optionsTitle">Options</h2>
+</div>
 )}
 
 export default  CreativeOptions

@@ -8,14 +8,26 @@
   padding: 0;
 }
 
+.notSelected {
+  border: 3px solid transparent;
+  background-color: $green-faded !important;
+}
+
+.selectedSize {
+  border: 3px solid $green;
+  background-color: $green;
+}
+
 .creativeSize {
-  border: 1px solid $green;
   border-radius: 0.5rem;
   padding: 4px 8px;
   color: white;
   font-weight: bold;
-  background-color: $green;
   letter-spacing: 0.7px;
+
+  &:hover {
+    border: 3px solid $green !important;
+  }
 }
 
 .creativeSize, .addNewCreativeSize {
@@ -23,9 +35,6 @@
   cursor: pointer;
 }
 
-.selectedSize {
-  background-color: $green;
-}
 
 .addNewCreativeSize {
   font-weight: bold;

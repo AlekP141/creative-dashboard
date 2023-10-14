@@ -40,11 +40,10 @@ const CreativeSizeBanner = ({
           return (
             <li
               key={size}
-              // style={{ backgroundColor: isSelected ? "blue" : "yellow" }}
               onClick={() => {
                 onSelectedSize(size);
               }}
-              className={`creativeSize ${isSelected ? "selectedSize" : ""}`}
+              className={`creativeSize ${isSelected ? "selectedSize" : "notSelected"}`}
             >
               {size}
             </li>

@@ -26,7 +26,7 @@ const CampaignSelector = ({
       <button
         className="changeSelection"
         onClick={(e) => {
-          const target = e.target as HTMLParagraphElement;
+          const target = e.target as HTMLButtonElement;
           target.style.display = "none";
           const form = document.querySelector(
             ".campaignFormContainer"
@@ -48,7 +48,7 @@ const CampaignSelector = ({
           </datalist>
           <button type="submit">Select</button>
         </form>
-        <button className="formClose" onClick={(e) => {
+        <button className="formClose" onClick={() => {
           const formContainer = document.querySelector(".campaignFormContainer") as HTMLFormElement;
           if (formContainer) {
             formContainer.style.display = "none"
