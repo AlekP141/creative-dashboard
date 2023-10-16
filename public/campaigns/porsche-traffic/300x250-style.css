@@ -27,15 +27,14 @@ html {
 
 body {
   border: 1px solid black;
-  height: 600px;
+  height: 250px;
   width: 300px;
 }
 
 .backgroundImage {
-  background-color: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
   width: 100%;
   height: 100%;
-  background-image: url("./images/porsche-head-on.jpeg");
+  background-image: url("./images/porsche-angled.jpg");
   background-size: cover;
   background-position: center;
   position: relative;
@@ -60,15 +59,15 @@ body {
   font-family: "Porsche Next", Arial, Helvetica, sans-serif;
   padding: 16px 8px;
   line-height: 1.15;
-  font-size: 24px;
+  font-size: 18px;
 }
 
 .secondaryText {
-  top: 64px;
+  top: 32px;
   font-family: "Porsche Next Thin", Arial, Helvetica, sans-serif;
   left: 8px;
   line-height: 1.2;
-  font-size: 20px;
+  font-size: 14px;
 }
 
 .whiteText {
@@ -79,19 +78,19 @@ body {
   width: 90%;
   left: 50%;
   transform: translateX(-50%);
-  bottom: 64px;
+  bottom: 36px;
 }
 
 .ctaButton {
   font-family: "Porsche Next", Arial, Helvetica, sans-serif;
   color: white;
-  padding: 4px 8px;
-  font-size: 16px;
+  padding: 2px 4px;
+  font-size: 12px;
   text-align: center;
   text-decoration: none;
   background-color: rgba(255, 255, 255, 0.5);
   border: 2px solid white;
-  bottom: 16px;
+  bottom: 4px;
   left: 50%;
   transform: translateX(-50%);
   border-radius: 0.5em;

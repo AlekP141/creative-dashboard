@@ -10,7 +10,7 @@ const CreativeSizeBanner = ({
   selectedSize,
   onSelectedSize,
 }: ICreativeSizeBanner) => {
-  const [creativeSizes, setCreativeSizes] = useState(["100x300", "300x600", "300x250", "320x50", "468x60"]);
+  const [creativeSizes, setCreativeSizes] = useState(["300x600", "300x250", "320x50", "468x60"]);
   const creativeSizeHeightRef = useRef<HTMLInputElement>(null);
   const creativeSizeWidthRef = useRef<HTMLInputElement>(null);
 
