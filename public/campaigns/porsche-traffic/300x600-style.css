@@ -64,7 +64,11 @@ h2 {
 }
 
 .mainText {
-  /* text-wrap: balance; */
+  margin: 0;
+  font-family: "Porsche Next", Arial, Helvetica, sans-serif;
+  padding: 16px 8px;
+  line-height: 1.15;
+  font-size: 24px;
 }
 
 .secondaryText {
@@ -77,4 +81,33 @@ h2 {
 
 .whiteText {
   color: white;
+}
+
+.logoText {
+  width: 90%;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 64px;
+}
+
+.ctaButton {
+  font-family: "Porsche Next", Arial, Helvetica, sans-serif;
+  color: white;
+  padding: 4px 8px;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 2px solid white;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 0.5em;
+  letter-spacing: 0.5px;
+  transition: all 0.2s linear;
+}
+
+.ctaButton:hover {
+  background-color: #fff;
+  color: black;
 }
