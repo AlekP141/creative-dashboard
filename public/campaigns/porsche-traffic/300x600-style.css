@@ -1,4 +1,80 @@
+@font-face {
+  font-family: "Porsche Next";
+  src: url("/src/assets/fonts/Porsche\ Next\ TT\ Regular.ttf");
+}
+@font-face {
+  font-family: "Porsche Next Italic";
+  src: url("/src/assets/fonts/PorscheNextTT-Italic_0.ttf");
+}
+
+@font-face {
+  font-family: "Porsche Next Bold";
+  src: url("/src/assets/fonts/Porsche\ Next\ TT\ Bold.ttf");
+}
+
+@font-face {
+  font-family: "Porsche Next Thin";
+  src: url("/src/assets/fonts/Porsche\ Next\ TT\ Thin.ttf");
+}
+
+html {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 body {
+  border: 1px solid black;
   height: 600px;
   width: 300px;
+}
+
+.backgroundImage {
+  background-color: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+  width: 100%;
+  height: 100%;
+  background-image: url("./images/porsche-head-on.jpeg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.backgroundImage::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 35%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
+}
+
+.backgroundImage * {
+  position: absolute;
+}
+
+h2 {
+  margin: 0;
+  font-family: "Porsche Next", Arial, Helvetica, sans-serif;
+  padding: 16px 8px;
+  line-height: 1.15;
+  font-size: 24px;
+}
+
+.mainText {
+  /* text-wrap: balance; */
+}
+
+.secondaryText {
+  top: 64px;
+  font-family: "Porsche Next Thin", Arial, Helvetica, sans-serif;
+  left: 8px;
+  line-height: 1.2;
+  font-size: 20px;
+}
+
+.whiteText {
+  color: white;
 }
