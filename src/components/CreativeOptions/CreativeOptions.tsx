@@ -4,22 +4,27 @@ import { useEffect, useState } from "react";
 const CreativeOptions = () => {
   const [creativeHeight, setCreativeHeight] = useState<number>(0);
   const [creativeWidth, setCreativeWidth] = useState<number>(0);
+  const [classNames, setClassNames] = useState({});
   const iframe = document.getElementById("iframe") as HTMLIFrameElement;
+
   let creative: Document | null = null;
   if (iframe && iframe.contentDocument) {
     creative = iframe.contentDocument;
   }
 
   interface IClassNames {
-    [key: number]: string[]
+    [key: number]: string[];
   }
 
-  const extractClassNames = (element: HTMLElement, classNames: IClassNames = {}, hashValue = 0) => {
-
-    console.dir(element.classList)
-    console.log(typeof(element.className))
+  const extractClassNames = (
+    element: HTMLElement,
+    classNames: IClassNames = {},
+    hashValue = 0
+  ) => {
+    console.dir(element.classList);
+    console.log(typeof element.className);
     if (element && element.classList.length != 0) {
-      const classes = Array.from(element.classList)
+      const classes = Array.from(element.classList);
       classNames[hashValue] = classes;
     }
 
@@ -29,7 +34,11 @@ const CreativeOptions = () => {
       hashValue = Number(keys[keys.length - 1]) + 1;
 
       childrenArray.forEach((el) => {
-        classNames = extractClassNames(el as HTMLElement, classNames, hashValue);
+        classNames = extractClassNames(
+          el as HTMLElement,
+          classNames,
+          hashValue
+        );
         hashValue++;
       });
     }
@@ -45,22 +54,41 @@ const CreativeOptions = () => {
       setCreativeHeight(newHeight);
       setCreativeWidth(newWidth);
 
-      const backgroundImage = creative.querySelector(".backgroundImage") as HTMLElement
-      console.log(extractClassNames(backgroundImage))
+      const container = creative.querySelector(".container") as HTMLElement;
+
+      setClassNames(extractClassNames(container));
     }
   }, [creative]);
 
+  const [allClasses, setAllClasses] = useState<string[]>();
+
   useEffect(() => {
-    console.log(creativeHeight);
-    console.log(creativeWidth);
-  }, [creativeHeight, creativeWidth]);
+    if (classNames) {
+      setAllClasses(Object.values(classNames));
+    }
+  }, [classNames]);
 
   return (
     <div className="optionsContainer">
       <h2 className="optionsTitle">Options</h2>
-      <form action="">
-        <h4></h4>
-      </form>
+      {allClasses && allClasses.length > 0 ? (
+        allClasses.map((classGroup, index) =>
+          classGroup.includes("container") ? null : (
+            <div key={classGroup[0]}>
+              <h5>{classGroup[0].split(/(?=[A-Z])/).join(" ").toLocaleUpperCase()}</h5>
+              {classGroup.includes("text") ? (
+                <p>Has Text</p>
+              ) : classGroup.includes("image") ? (
+                <p>Has Image</p>
+              ) : classGroup.includes("logo") ? (
+                <p>Has Logo</p>
+              ) : null}
+            </div>
+          )
+        )
+      ) : (
+        <p>No classes found.</p>
+      )}
     </div>
   );
 };
