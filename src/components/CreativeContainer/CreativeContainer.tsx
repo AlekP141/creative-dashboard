@@ -40,26 +40,6 @@ const CreativeContainer = ({
     validateFile();
   }, [selectedCampaign, selectedSize]);
 
-  // Test case for how to work the CSS options tab
-  useEffect(() => {
-    setTimeout(() => {
-      const iframe = document.getElementById("iframe") as HTMLIFrameElement;
-      // Check if the iframe is loaded
-      if (iframe && iframe.contentDocument) {
-        const iframeDocument = iframe.contentDocument;
-        const elementInsideIframe = iframeDocument.querySelector(
-          ".test"
-        ) as HTMLElement;
-
-        // Modify CSS properties of the element inside the iframe
-        if (elementInsideIframe) {
-          elementInsideIframe.style.color = "red";
-          elementInsideIframe.style.fontSize = "20px";
-        }
-      }
-    }, 100);
-  }, [selectedSize]);
-
   return (
     <div className="creativeFrame">
       {children}
