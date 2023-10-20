@@ -1,5 +1,6 @@
 import "./CreativeOptions.scss";
 import { useEffect, useState } from "react";
+import OptionsList from "../OptionsList/OptionsList"
 
 const CreativeOptions = () => {
   const [creativeHeight, setCreativeHeight] = useState<number>(0);
@@ -72,20 +73,13 @@ const CreativeOptions = () => {
     <div className="optionsContainer">
       <h2 className="optionsTitle">Options</h2>
       {allClasses && allClasses.length > 0 ? (
-        allClasses.map((classGroup, index) =>
-          classGroup.includes("container") ? null : (
-            <div key={classGroup[0]}>
-              <h5>{classGroup[0].split(/(?=[A-Z])/).join(" ").toLocaleUpperCase()}</h5>
-              {classGroup.includes("text") ? (
-                <p>Has Text</p>
-              ) : classGroup.includes("image") ? (
-                <p>Has Image</p>
-              ) : classGroup.includes("logo") ? (
-                <p>Has Logo</p>
-              ) : null}
-            </div>
-          )
-        )
+        allClasses.map((classGroup) => (
+          <OptionsList
+            classes={classGroup}
+            creativeHeight={creativeHeight}
+            creativeWidth={creativeWidth}
+          />
+        ))
       ) : (
         <p>No classes found.</p>
       )}
