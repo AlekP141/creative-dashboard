@@ -4,12 +4,13 @@
   position: absolute;
   top: 0px;
   left: calc(100% + 16px);
-  width: 200px;
+  width: 280px;
   height: 100%;
   background-color: white;
   border: 1px solid $black;
   border-radius: 8px;
   padding: 16px;
+  overflow-y: scroll;
 }
 
 .optionsTitle {

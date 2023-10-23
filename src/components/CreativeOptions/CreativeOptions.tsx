@@ -22,8 +22,6 @@ const CreativeOptions = () => {
     classNames: IClassNames = {},
     hashValue = 0
   ) => {
-    console.dir(element.classList);
-    console.log(typeof element.className);
     if (element && element.classList.length != 0) {
       const classes = Array.from(element.classList);
       classNames[hashValue] = classes;
@@ -75,6 +73,7 @@ const CreativeOptions = () => {
       {allClasses && allClasses.length > 0 ? (
         allClasses.map((classGroup) => (
           <OptionsList
+            key={classGroup[0]}
             classes={classGroup}
             creativeHeight={creativeHeight}
             creativeWidth={creativeWidth}

@@ -1,5 +1,7 @@
 import "./CreativeContainer.scss";
 import { ReactNode, useEffect, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
 
 interface ICreativeContainer {
   children: ReactNode;
@@ -40,12 +42,47 @@ const CreativeContainer = ({
     validateFile();
   }, [selectedCampaign, selectedSize]);
 
+  const [docScale, setDocScale] = useState(1)
+
+  const selectIframeDoc = () => {
+    const iframe = document.getElementById("iframe") as HTMLIFrameElement;
+    let creative: Document | null = null;
+    if (iframe && iframe.contentDocument) {
+      creative = iframe.contentDocument;
+    }
+    const body = creative?.querySelector("body") as HTMLBodyElement;
+    return body
+  }
+
+  const zoomOut = () => {
+    if (docScale >=0.4) {
+      setDocScale(docScale - 0.2)
+      const body = selectIframeDoc()
+      body.style.scale = String(docScale)
+    }
+  };
+
+  const zoomIn = () => {
+    setDocScale(docScale + 0.2)
+    const body = selectIframeDoc()
+    body.style.scale = String(docScale)
+  };
+
   return (
     <div className="creativeFrame">
+      <div className="zoomFunction">
+        <button onClick={zoomOut} className="zoomButton">
+          <FontAwesomeIcon icon={faMinus} />
+        </button>
+        <button onClick={zoomIn} className="zoomButton">
+          <FontAwesomeIcon icon={faPlus} />
+        </button>
+      </div>
       {children}
       <div className="creativeContainer">
         {isValidFile ? (
           <iframe
+            // style={{transform: `scale(${docScale})`}}
             id="iframe"
             src={`/campaigns/${selectedCampaign}/${selectedSize}-${selectedCampaign}.html`}
           />

@@ -29,6 +29,7 @@ body {
   border: 1px solid black;
   height: 250px;
   width: 300px;
+  scale: 1;
 }
 
 .container {
