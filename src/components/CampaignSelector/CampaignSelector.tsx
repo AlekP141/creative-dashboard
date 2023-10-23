@@ -17,6 +17,7 @@ const CampaignSelector = ({
     const selectedValue = campaignRef.current?.value;
     if (selectedValue) {
       onSelectedCampaign(selectedValue);
+      campaignRef.current.value = ""
     }
   };
 
