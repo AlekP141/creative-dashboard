@@ -1,5 +1,5 @@
 import "./CreativeContainer.scss";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
 import CreativeOptions from "../CreativeOptions/CreativeOptions";
@@ -28,7 +28,6 @@ const CreativeContainer = ({
   selectedCampaign,
   selectedSize,
 }: ICreativeContainer) => {
-  const iframeRef = useRef<HTMLIFrameElement>(null)
   const [isValidFile, setIsValidFile] = useState(false);
 
   useEffect(() => {
@@ -88,8 +87,8 @@ const CreativeContainer = ({
         {isValidFile ? (
           <iframe
             onLoad={(e) => {
-              setCreative(e.target.contentDocument)
-              // console.log(e.target.contentDocument)
+              const iframe = e.target as HTMLIFrameElement
+              setCreative(iframe.contentDocument)
             }}
             id="iframe"
             src={`/campaigns/${selectedCampaign}/${selectedSize}-${selectedCampaign}.html`}
