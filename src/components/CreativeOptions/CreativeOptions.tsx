@@ -4,14 +4,13 @@ import OptionsList from "../OptionsList/OptionsList";
 
 interface ICreativeOptions {
   selectedSize: string;
+  creative: Document | undefined;
 }
 
-const CreativeOptions = ({ selectedSize }: ICreativeOptions) => {
+const CreativeOptions = ({ selectedSize, creative }: ICreativeOptions) => {
   // const [creativeHeight, setCreativeHeight] = useState<number>(0);
   // const [creativeWidth, setCreativeWidth] = useState<number>(0);
   // const [classNames, setClassNames] = useState({});
-  const iframe = document.getElementById("iframe") as HTMLIFrameElement;
-  // const [creative, setCreative] = useState<Document | null>(null);
   const [selectedSizeObject, setSelectedSizeObject] = useState({
     width: "300",
     height: "600",
@@ -21,18 +20,10 @@ const CreativeOptions = ({ selectedSize }: ICreativeOptions) => {
   useLayoutEffect(() => {
     const splitSize = selectedSize.split("x");
     setSelectedSizeObject({ width: splitSize[0], height: splitSize[1] });
-  }, [selectedSize]);
 
-  useEffect(() => {
-    console.log(selectedSizeObject);
-    // Set the selected creative
-    let creative: Document | null = null;
+    console.log(creative)
+  }, [creative]);
 
-    if (iframe && iframe.contentDocument) {
-      creative = iframe.contentDocument;
-    }
-    console.log(creative);
-  }, [selectedSizeObject]);
 
   // let creative: Document | null = null;
   // if (iframe && iframe.contentDocument) {

@@ -1,5 +1,5 @@
 import "./CreativeContainer.scss";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
 import CreativeOptions from "../CreativeOptions/CreativeOptions";
@@ -28,6 +28,7 @@ const CreativeContainer = ({
   selectedCampaign,
   selectedSize,
 }: ICreativeContainer) => {
+  const iframeRef = useRef<HTMLIFrameElement>(null)
   const [isValidFile, setIsValidFile] = useState(false);
 
   useEffect(() => {
@@ -67,6 +68,8 @@ const CreativeContainer = ({
     body.style.scale = String(docScale)
   };
 
+  const [creative, setCreative] = useState<Document>()
+
   return (
     <div className="creativeFrame">
       <div className="zoomFunction">
@@ -79,11 +82,15 @@ const CreativeContainer = ({
       </div>
       <CreativeOptions
         selectedSize={selectedSize}
+        creative={creative}
       />
       <div className="creativeContainer">
         {isValidFile ? (
           <iframe
-            // style={{transform: `scale(${docScale})`}}
+            onLoad={(e) => {
+              setCreative(e.target.contentDocument)
+              // console.log(e.target.contentDocument)
+            }}
             id="iframe"
             src={`/campaigns/${selectedCampaign}/${selectedSize}-${selectedCampaign}.html`}
           />
