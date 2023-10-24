@@ -1,76 +1,102 @@
 import "./CreativeOptions.scss";
-import { useEffect, useState } from "react";
-import OptionsList from "../OptionsList/OptionsList"
+import { useEffect, useLayoutEffect, useState } from "react";
+import OptionsList from "../OptionsList/OptionsList";
 
-const CreativeOptions = () => {
-  const [creativeHeight, setCreativeHeight] = useState<number>(0);
-  const [creativeWidth, setCreativeWidth] = useState<number>(0);
-  const [classNames, setClassNames] = useState({});
+interface ICreativeOptions {
+  selectedSize: string;
+}
+
+const CreativeOptions = ({ selectedSize }: ICreativeOptions) => {
+  // const [creativeHeight, setCreativeHeight] = useState<number>(0);
+  // const [creativeWidth, setCreativeWidth] = useState<number>(0);
+  // const [classNames, setClassNames] = useState({});
   const iframe = document.getElementById("iframe") as HTMLIFrameElement;
+  // const [creative, setCreative] = useState<Document | null>(null);
+  const [selectedSizeObject, setSelectedSizeObject] = useState({
+    width: "300",
+    height: "600",
+  });
 
-  let creative: Document | null = null;
-  if (iframe && iframe.contentDocument) {
-    creative = iframe.contentDocument;
-  }
-
-  interface IClassNames {
-    [key: number]: string[];
-  }
-
-  const extractClassNames = (
-    element: HTMLElement,
-    classNames: IClassNames = {},
-    hashValue = 0
-  ) => {
-    if (element && element.classList.length != 0) {
-      const classes = Array.from(element.classList);
-      classNames[hashValue] = classes;
-    }
-
-    if (element && element.children) {
-      const childrenArray = Array.from(element.children);
-      const keys = Object.keys(classNames);
-      hashValue = Number(keys[keys.length - 1]) + 1;
-
-      childrenArray.forEach((el) => {
-        classNames = extractClassNames(
-          el as HTMLElement,
-          classNames,
-          hashValue
-        );
-        hashValue++;
-      });
-    }
-
-    return classNames;
-  };
+  // Convert selectedSize into object with height/width
+  useLayoutEffect(() => {
+    const splitSize = selectedSize.split("x");
+    setSelectedSizeObject({ width: splitSize[0], height: splitSize[1] });
+  }, [selectedSize]);
 
   useEffect(() => {
-    if (creative) {
-      const body = creative.querySelector("body") as HTMLBodyElement;
-      const newHeight = body.offsetHeight - 2;
-      const newWidth = body.offsetWidth - 2;
-      setCreativeHeight(newHeight);
-      setCreativeWidth(newWidth);
+    console.log(selectedSizeObject);
+    // Set the selected creative
+    let creative: Document | null = null;
 
-      const container = creative.querySelector(".container") as HTMLElement;
-
-      setClassNames(extractClassNames(container));
+    if (iframe && iframe.contentDocument) {
+      creative = iframe.contentDocument;
     }
-  }, [creative]);
+    console.log(creative);
+  }, [selectedSizeObject]);
 
-  const [allClasses, setAllClasses] = useState<string[]>();
+  // let creative: Document | null = null;
+  // if (iframe && iframe.contentDocument) {
+  //   creative = iframe.contentDocument;
+  // }
 
-  useEffect(() => {
-    if (classNames) {
-      setAllClasses(Object.values(classNames));
-    }
-  }, [classNames]);
+  // interface IClassNames {
+  //   [key: number]: string[];
+  // }
+
+  // const extractClassNames = (
+  //   element: HTMLElement,
+  //   classNames: IClassNames = {},
+  //   hashValue = 0
+  // ) => {
+  //   if (element && element.classList.length != 0) {
+  //     const classes = Array.from(element.classList);
+  //     classNames[hashValue] = classes;
+  //   }
+
+  //   if (element && element.children) {
+  //     const childrenArray = Array.from(element.children);
+  //     const keys = Object.keys(classNames);
+  //     hashValue = Number(keys[keys.length - 1]) + 1;
+
+  //     childrenArray.forEach((el) => {
+  //       classNames = extractClassNames(
+  //         el as HTMLElement,
+  //         classNames,
+  //         hashValue
+  //       );
+  //       hashValue++;
+  //     });
+  //   }
+
+  //   return classNames;
+  // };
+
+  // useEffect(() => {
+  //   if (creative) {
+  //     const body = creative.querySelector("body") as HTMLBodyElement;
+  //     const newHeight = body.offsetHeight - 2;
+  //     const newWidth = body.offsetWidth - 2;
+  //     setCreativeHeight(newHeight);
+  //     setCreativeWidth(newWidth);
+
+  //     const container = creative.querySelector(".container") as HTMLElement;
+
+  //     setClassNames(extractClassNames(container));
+  //   }
+  // }, [selectedSize]);
+
+  // const [allClasses, setAllClasses] = useState<string[]>();
+
+  // useLayoutEffect(() => {
+  //   if (classNames) {
+  //     setAllClasses(Object.values(classNames));
+  //   }
+  // }, [classNames]);
 
   return (
     <div className="optionsContainer">
       <h2 className="optionsTitle">Options</h2>
-      {allClasses && allClasses.length > 0 ? (
+      {/* {allClasses && allClasses.length > 0 ? (
         allClasses.map((classGroup) => (
           <OptionsList
             key={classGroup[0]}
@@ -81,7 +107,7 @@ const CreativeOptions = () => {
         ))
       ) : (
         <p>No classes found.</p>
-      )}
+      )} */}
     </div>
   );
 };

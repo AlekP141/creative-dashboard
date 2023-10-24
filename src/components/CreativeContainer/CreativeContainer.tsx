@@ -1,10 +1,10 @@
 import "./CreativeContainer.scss";
-import { ReactNode, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
+import CreativeOptions from "../CreativeOptions/CreativeOptions";
 
 interface ICreativeContainer {
-  children: ReactNode;
   selectedCampaign: string;
   selectedSize: string;
 }
@@ -25,7 +25,6 @@ const fileValidation = async (
 };
 
 const CreativeContainer = ({
-  children,
   selectedCampaign,
   selectedSize,
 }: ICreativeContainer) => {
@@ -78,7 +77,9 @@ const CreativeContainer = ({
           <FontAwesomeIcon icon={faPlus} />
         </button>
       </div>
-      {children}
+      <CreativeOptions
+        selectedSize={selectedSize}
+      />
       <div className="creativeContainer">
         {isValidFile ? (
           <iframe
