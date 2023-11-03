@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
 import CreativeOptions from "../CreativeOptions/CreativeOptions";
+import selectCreative from "../../functions/selectCreative";
 
 interface ICreativeContainer {
   selectedCampaign: string;
@@ -44,11 +45,7 @@ const CreativeContainer = ({
   const [docScale, setDocScale] = useState(1)
 
   const selectIframeDoc = () => {
-    const iframe = document.getElementById("iframe") as HTMLIFrameElement;
-    let creative: Document | null = null;
-    if (iframe && iframe.contentDocument) {
-      creative = iframe.contentDocument;
-    }
+    const creative = selectCreative()
     const body = creative?.querySelector("body") as HTMLBodyElement;
     return body
   }

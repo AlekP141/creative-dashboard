@@ -1,3 +1,5 @@
+import BackgroundUpload from "../BackgroundUpload/BackgroundUpload.";
+
 interface IOptionsList {
   classes: string;
   creativeHeight: number;
@@ -22,7 +24,7 @@ const OptionsList = ({ classes, creativeHeight, creativeWidth }: IOptionsList) =
           <p>Creative bounds: {height} x {width}</p>
         </div>
       ) : classes.includes("image") ? (
-        <p>Has Image</p>
+        <BackgroundUpload/>
       ) : classes.includes("logo") ? (
         <p>Has Logo</p>
       ) : null}
