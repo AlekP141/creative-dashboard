@@ -1,9 +1,9 @@
 import selectCreative from "../../functions/selectCreative"
 
 
-const TextEdit = () => {
+const TextEdit = (classes) => {
   const creative = selectCreative()
-  
+
 
   return (
     <div className="textEdit">

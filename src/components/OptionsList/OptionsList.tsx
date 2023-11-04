@@ -19,12 +19,13 @@ const OptionsList = ({ classes, creativeHeight, creativeWidth }: IOptionsList) =
           .toLocaleUpperCase()}
       </h5>
       {classes.includes("text") ? (
+        // Pass in classes to make sure that the correct class is being called since multiple text classes will exist
         <div className="optionParams">
           <p>Has Text</p>
           <p>Creative bounds: {height} x {width}</p>
         </div>
       ) : classes.includes("image") ? (
-        <BackgroundUpload/>
+        <BackgroundUpload />
       ) : classes.includes("logo") ? (
         <p>Has Logo</p>
       ) : null}
