@@ -64,7 +64,10 @@ body {
 .mainText {
   margin: 0;
   font-family: "Porsche Next", Arial, Helvetica, sans-serif;
-  padding: 16px 8px;
+  position: absolute;
+  width: calc(100% - 16px);
+  left: 8px;
+  top: 16px;
   line-height: 1.15;
   font-size: 24px;
   color: white;
