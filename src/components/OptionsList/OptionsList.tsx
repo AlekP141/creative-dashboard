@@ -1,4 +1,5 @@
 import BackgroundUpload from "../BackgroundUpload/BackgroundUpload.";
+import TextEdit from "../TextEdit/TextEdit";
 
 interface IOptionsList {
   classes: string;
@@ -20,10 +21,7 @@ const OptionsList = ({ classes, creativeHeight, creativeWidth }: IOptionsList) =
       </h5>
       {classes.includes("text") ? (
         // Pass in classes to make sure that the correct class is being called since multiple text classes will exist
-        <div className="optionParams">
-          <p>Has Text</p>
-          <p>Creative bounds: {height} x {width}</p>
-        </div>
+        <TextEdit classes={classes} />
       ) : classes.includes("image") ? (
         <BackgroundUpload />
       ) : classes.includes("logo") ? (

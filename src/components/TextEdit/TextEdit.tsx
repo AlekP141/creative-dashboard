@@ -1,15 +1,14 @@
-import selectCreative from "../../functions/selectCreative"
+import selectCreative from "../../functions/selectCreative";
 
-
-const TextEdit = (classes) => {
-  const creative = selectCreative()
-
-
-  return (
-    <div className="textEdit">
-
-    </div>
-  )
+interface ITextEdit {
+  classes: string;
 }
 
-export default TextEdit
+const TextEdit = ({ classes }: ITextEdit) => {
+  const creative = selectCreative();
+  const targetClass = classes[0];
+  console.log(targetClass);
+  return <div className="textEdit"></div>;
+};
+
+export default TextEdit;
