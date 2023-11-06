@@ -5,8 +5,23 @@
   width: 100%;
 }
 
+.radioInput {
+  display: none;
+}
 
+.radioInput:checked + label {
+  color: $green
+}
 
+.textAlignGroup {
+  display: flex;
+  gap: 16px;
+  font-size: 20px;
+}
+
+.textAlignLabel {
+  cursor: pointer;
+}
 // :root {
 //   --main-color: rgb(104, 117, 217);
 //   --main-color-hover: rgb(104, 117, 217, 0.2);
