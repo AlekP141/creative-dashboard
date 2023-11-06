@@ -12,7 +12,7 @@ const TextEdit = ({ classes, width, height }: ITextEdit) => {
   const creative = selectCreative();
   const targetClass = classes[0];
   // console.log(targetClass);
-  const [left, setLeft] = useState("");
+  const [left, setLeft] = useState<number>();
   const [top, setTop] = useState("");
   const [fontSize, setfontSize] = useState("");
   const [text, setText] = useState("");
@@ -24,7 +24,7 @@ const TextEdit = ({ classes, width, height }: ITextEdit) => {
         `.${targetClass}`
       ) as HTMLElement;
       const targetElementStyle = getComputedStyle(targetElement)
-      setLeft(targetElementStyle.left);
+      setLeft(parseInt(targetElementStyle.left, 10));
       setfontSize(targetElementStyle.fontSize);
       setTop(targetElementStyle.top);
       setText(targetElement.innerText);
@@ -53,13 +53,13 @@ const TextEdit = ({ classes, width, height }: ITextEdit) => {
 
   const sliderChangeHandler = () => {
     const rangeSlider = document.querySelector(`#${classes[0]}Range`) as HTMLInputElement;
-    setLeft(rangeSlider.value)
+    setLeft(parseInt(rangeSlider.value))
   }
 
   return (
     <div className="textEdit">
-      <p>{left}</p>
-      <input className="sliderInputTrack" id={`${classes[0]}Range`} type="range" min="0" max={width} value={left} onChange={sliderChangeHandler}/>
+      <p>{left}px</p>
+      <input className="sliderInputTrack" id={`${classes[0]}Range`} type="range" min="0" max={width} value={left || 0} onChange={sliderChangeHandler}/>
       <p>{top}</p>
       <p>{fontSize}</p>
       <p>{text}</p>

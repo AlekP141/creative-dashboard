@@ -52,8 +52,6 @@ const CreativeOptions = ({ selectedSize, creative }: ICreativeOptions) => {
     const splitSize = selectedSize.split("x");
     setSelectedSizeObject({ width: splitSize[0], height: splitSize[1] });
 
-    console.log(creative)
-
     if (creative) {
       const container = creative.querySelector(".container") as HTMLElement;
 
