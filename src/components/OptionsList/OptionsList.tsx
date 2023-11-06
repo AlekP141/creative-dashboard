@@ -21,7 +21,7 @@ const OptionsList = ({ classes, creativeHeight, creativeWidth }: IOptionsList) =
       </h5>
       {classes.includes("text") ? (
         // Pass in classes to make sure that the correct class is being called since multiple text classes will exist
-        <TextEdit classes={classes} />
+        <TextEdit classes={classes} width={creativeWidth} height={creativeHeight} />
       ) : classes.includes("image") ? (
         <BackgroundUpload />
       ) : classes.includes("logo") ? (
