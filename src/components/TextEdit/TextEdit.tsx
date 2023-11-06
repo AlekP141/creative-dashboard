@@ -60,7 +60,6 @@ const TextEdit = ({ classes, width, height }: ITextEdit) => {
     // console.log(textAlign)
   }, [creative, classes, left, fontSize, top, newText, color, textAlign]);
 
-
   interface ISliderChangeHandler {
     direction: string;
   }
@@ -84,6 +83,37 @@ const TextEdit = ({ classes, width, height }: ITextEdit) => {
     ) as HTMLTextAreaElement;
     setNewText(textArea.value);
   };
+
+  const fontSizeChangeHandler = () => {
+    const fontSize = document.querySelector(`#${classes[0]}FontSize`) as HTMLInputElement;
+    setfontSize(fontSize.value)
+  }
+
+  // // convert color to hex
+  // const componentToHex = (c: number) => {
+  //   const hex = c.toString(16);
+  //   return hex.length == 1 ? "0" + hex : hex;
+  // };
+
+  // const rgbToHex = (r: number, g: number, b: number) => {
+  //   return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+  // };
+
+  // useEffect(() => {
+  //     const colorArray = color
+  //     .replace(/^(rgb|rgba)\(/, "")
+  //     .replace(/\)$/, "")
+  //     .replace(/\s/g, "")
+  //     .split(",");
+  //     const [r, g, b] = [+colorArray[0], +colorArray[1], +colorArray[2]];
+  //     console.log("r:" + r)
+  //     console.log("g:" + g)
+  //     console.log("b:" + b)
+  //     console.log(rgbToHex(r, g, b));
+  //     const hexColor = rgbToHex(r, g, b);
+  //     console.log(hexColor);
+  //     setColor(hexColor);
+  // }, [color]);
 
   return (
     <div className="textEdit">
@@ -143,7 +173,7 @@ const TextEdit = ({ classes, width, height }: ITextEdit) => {
         </label>
       </div>
 
-      <p>Left Position: {left}px</p>
+      <label htmlFor={`${classes[0]}LeftRange`}>Left Position: {left}px</label>
       <input
         className="sliderInputTrack"
         id={`${classes[0]}LeftRange`}
@@ -153,7 +183,8 @@ const TextEdit = ({ classes, width, height }: ITextEdit) => {
         value={left || 0}
         onChange={() => sliderChangeHandler({ direction: "Left" })}
       />
-      <p>Top Position: {top}px</p>
+
+      <label htmlFor={`${classes[0]}TopRange`}>Top Position: {top}px</label>
       <input
         className="sliderInputTrack"
         id={`${classes[0]}TopRange`}
@@ -163,14 +194,18 @@ const TextEdit = ({ classes, width, height }: ITextEdit) => {
         value={top || 0}
         onChange={() => sliderChangeHandler({ direction: "Top" })}
       />
-      <p>Font Size: {fontSize}</p>
-      <p>Text:</p>
+
+      <label htmlFor={`${classes[0]}FontSize`}>Font Size:</label>
+      <input className="fontSizeInput" type="text" name={`${classes[0]}FontSize`} id={`${classes[0]}FontSize`} value={fontSize} onChange={() => {fontSizeChangeHandler()}}/>
+
+      <label htmlFor={`${classes[0]}TextArea`}>Text:</label>
       <textarea
         id={`${classes[0]}TextArea`}
+        name={`${classes[0]}TextArea`}
         value={newText === undefined ? text : newText}
         onChange={() => textChangeHandler()}
       />
-      <p>{color}</p>
+      {/* <input type="color" name={`${classes[0]}Color`} id={`${classes[0]}Color`} value={color} /> */}
     </div>
   );
 };

@@ -22,6 +22,16 @@
 .textAlignLabel {
   cursor: pointer;
 }
+
+label {
+  display: block;
+  margin-top: 8px;
+}
+
+.fontSizeInput {
+  width: 30%;
+}
+
 // :root {
 //   --main-color: rgb(104, 117, 217);
 //   --main-color-hover: rgb(104, 117, 217, 0.2);

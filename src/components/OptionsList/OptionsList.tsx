@@ -1,5 +1,6 @@
 import BackgroundUpload from "../BackgroundUpload/BackgroundUpload.";
 import TextEdit from "../TextEdit/TextEdit";
+import "./OptionsList.scss"
 
 interface IOptionsList {
   classes: string;
@@ -13,7 +14,7 @@ const OptionsList = ({ classes, creativeHeight, creativeWidth }: IOptionsList) =
   const width = creativeWidth
   return classes.includes("container") ? null : (
     <div className="typeOptions" key={classes[0]}>
-      <h5>
+      <h5 className="classSectionTitle">
         {classes[0]
           .split(/(?=[A-Z])/)
           .join(" ")

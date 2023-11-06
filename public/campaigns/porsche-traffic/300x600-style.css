@@ -74,7 +74,8 @@ body {
 }
 
 .secondaryText {
-  top: 64px;
+  margin: 0;
+  top: 88px;
   font-family: "Porsche Next Thin", Arial, Helvetica, sans-serif;
   left: 8px;
   line-height: 1.2;
