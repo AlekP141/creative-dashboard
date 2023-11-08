@@ -33,7 +33,6 @@ const TextEdit = ({ classes, width, height }: ITextEdit) => {
         `.${targetClass}`
       ) as HTMLElement;
       const targetElementStyle = getComputedStyle(targetElement);
-      console.log(targetElement.innerText);
       setLeft(parseInt(targetElementStyle.left, 10));
       setfontSize(targetElementStyle.fontSize);
       setTop(parseInt(targetElementStyle.top, 10));
