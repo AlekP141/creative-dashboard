@@ -1,6 +1,7 @@
 import BackgroundUpload from "../BackgroundUpload/BackgroundUpload.";
 import TextEdit from "../TextEdit/TextEdit";
 import "./OptionsList.scss"
+import LogoEdit from "../LogoEdit/LogoEdit";
 
 interface IOptionsList {
   classes: string;
@@ -10,8 +11,6 @@ interface IOptionsList {
 
 const OptionsList = ({ classes, creativeHeight, creativeWidth }: IOptionsList) => {
 
-  const height = creativeHeight
-  const width = creativeWidth
   return classes.includes("container") ? null : (
     <div className="typeOptions" key={classes[0]}>
       <h5 className="classSectionTitle">
@@ -26,7 +25,7 @@ const OptionsList = ({ classes, creativeHeight, creativeWidth }: IOptionsList) =
       ) : classes.includes("image") ? (
         <BackgroundUpload />
       ) : classes.includes("logo") ? (
-        <p>Has Logo</p>
+        <LogoEdit classes={classes} width={creativeWidth} height={creativeHeight} />
       ) : null}
     </div>
   );
