@@ -33,7 +33,7 @@ const LogoEdit = ({ classes, width, height }: ILogoEdit) => {
     // console.log(targetElement)
     targetElement.style.left = `${left}px`;
     targetElement.style.top = `${top}px`;
-  }, [creative, classes, left, top]);
+  }, [left, top]);
 
   interface ISliderChangeHandler {
     direction: string;

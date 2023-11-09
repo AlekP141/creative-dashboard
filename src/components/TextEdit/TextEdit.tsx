@@ -57,7 +57,7 @@ const TextEdit = ({ classes, width, height }: ITextEdit) => {
     targetElement.style.color = `#${color}`;
     targetElement.style.textAlign = textAlign;
     // console.log(textAlign)
-  }, [creative, classes, left, fontSize, top, newText, color, textAlign]);
+  }, [left, fontSize, top, newText, color, textAlign]);
 
   interface ISliderChangeHandler {
     direction: string;
