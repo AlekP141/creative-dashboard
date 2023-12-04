@@ -90,7 +90,7 @@ const CreativeContainer = ({
               }
             }}
             id="iframe"
-            src={`/campaigns/${selectedCampaign}/${selectedSize}-${selectedCampaign}.html`}
+            src={`./campaigns/${selectedCampaign}/${selectedSize}-${selectedCampaign}.html`}
           />
         ) : (
           <h2>Error: No file found in this size.</h2>
