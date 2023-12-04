@@ -85,7 +85,9 @@ const CreativeContainer = ({
           <iframe
             onLoad={(e) => {
               const iframe = e.target as HTMLIFrameElement
-              setCreative(iframe.contentDocument)
+              if (iframe.contentDocument) {
+                setCreative(iframe.contentDocument)
+              }
             }}
             id="iframe"
             src={`/campaigns/${selectedCampaign}/${selectedSize}-${selectedCampaign}.html`}
