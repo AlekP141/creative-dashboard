@@ -1,0 +1,110 @@
+@font-face {
+  font-family: "Porsche Next";
+  src: url("/src/assets/fonts/Porsche\ Next\ TT\ Regular.ttf");
+}
+@font-face {
+  font-family: "Porsche Next Italic";
+  src: url("/src/assets/fonts/PorscheNextTT-Italic_0.ttf");
+}
+
+@font-face {
+  font-family: "Porsche Next Bold";
+  src: url("/src/assets/fonts/Porsche\ Next\ TT\ Bold.ttf");
+}
+
+@font-face {
+  font-family: "Porsche Next Thin";
+  src: url("/src/assets/fonts/Porsche\ Next\ TT\ Thin.ttf");
+}
+
+html {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body {
+  border: 1px solid black;
+  height: 250px;
+  width: 300px;
+  scale: 1;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+}
+
+.backgroundImage {
+  width: 100%;
+  height: 100%;
+  background-image: url("./images/porsche-angled.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.backgroundImage::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 35%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
+}
+
+.backgroundImage * {
+  position: absolute;
+}
+
+.mainText {
+  margin: 0;
+  font-family: "Porsche Next", Arial, Helvetica, sans-serif;
+  position: absolute;
+  left: 8px;
+  top: 16px;
+  line-height: 1.15;
+  font-size: 18px;
+  color: white;
+}
+
+.secondaryText {
+  top: 32px;
+  font-family: "Porsche Next Thin", Arial, Helvetica, sans-serif;
+  left: 8px;
+  line-height: 1.2;
+  font-size: 14px;
+  color: white;
+}
+
+.logoText {
+  width: 90%;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 36px;
+}
+
+.ctaButton {
+  font-family: "Porsche Next", Arial, Helvetica, sans-serif;
+  color: white;
+  padding: 2px 4px;
+  font-size: 12px;
+  text-align: center;
+  text-decoration: none;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 2px solid white;
+  top: calc(100% - 40px);
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 0.5em;
+  letter-spacing: 0.5px;
+  transition: all 0.2s linear;
+}
+
+.ctaButton:hover {
+  background-color: #fff;
+  color: black;
+}
