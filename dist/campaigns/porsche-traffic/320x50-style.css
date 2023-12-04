@@ -1,0 +1,143 @@
+@font-face {
+  font-family: "Porsche Next";
+  src: url("/src/assets/fonts/Porsche\ Next\ TT\ Regular.ttf");
+}
+@font-face {
+  font-family: "Porsche Next Italic";
+  src: url("/src/assets/fonts/PorscheNextTT-Italic_0.ttf");
+}
+
+@font-face {
+  font-family: "Porsche Next Bold";
+  src: url("/src/assets/fonts/Porsche\ Next\ TT\ Bold.ttf");
+}
+
+@font-face {
+  font-family: "Porsche Next Thin";
+  src: url("/src/assets/fonts/Porsche\ Next\ TT\ Thin.ttf");
+}
+
+html {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body {
+  border: 1px solid black;
+  height: 50px;
+  width: 320px;
+  scale: 1;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+}
+
+.backgroundImage {
+  width: 100%;
+  height: 100%;
+  background-image: url("./images/porsche-normal.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  background-position-y: -38px;
+}
+
+.backgroundImage * {
+  position: absolute;
+}
+
+.backgroundImage::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 30%;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0))
+}
+
+.mainText {
+  width: 50%;
+  margin: 0;
+  font-family: "Porsche Next", Arial, Helvetica, sans-serif;
+  line-height: 1.15;
+  font-size: 16px;
+  left: 4px;
+  top: 4px;
+}
+
+
+
+.whiteText {
+  color: white;
+}
+
+.logoText {
+  width: 90%;
+}
+
+.ctaButton {
+  font-family: "Porsche Next", Arial, Helvetica, sans-serif;
+  color: white;
+  padding: 4px 8px;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 2px solid white;
+  border-radius: 0.5em;
+  letter-spacing: 0.5px;
+  transition: all 0.2s linear;
+}
+
+.ctaButton:hover {
+  background-color: #fff;
+  color: black;
+}
+
+
+.secondFrame {
+  background-color: black;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  top: -100%;
+  left: 0;
+  z-index: 2;
+  opacity: 0;
+  animation: show 1.2s forwards;
+  animation-delay: 3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.thirdFrame {
+  background-color: black;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  top: -200%;
+  left: 0;
+  z-index: 3;
+  opacity: 0;
+  animation: show 0.6s forwards;
+  animation-delay: calc(3s + 1.2s + 2s);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes show {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1
+  }
+}
