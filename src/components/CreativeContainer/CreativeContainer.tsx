@@ -16,7 +16,7 @@ const fileValidation = async (
 ): Promise<boolean> => {
   try {
     const response = await fetch(
-      `/campaigns/${campaign}/${size}-${campaign}.html`,
+      `https://alekp141.github.io/creative-dashboard_${campaign}_300x250/`,
     );
     return response.status === 200;
   } catch (error) {
