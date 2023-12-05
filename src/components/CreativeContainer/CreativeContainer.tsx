@@ -16,7 +16,7 @@ const fileValidation = async (
 ): Promise<boolean> => {
   try {
     const response = await fetch(
-      `https://alekp141.github.io/creative-dashboard_${campaign}_300x250/`,
+      `https://alekp141.github.io/creative-dashboard_${campaign}_${size}/`,
     );
     return response.status === 200;
   } catch (error) {
@@ -66,8 +66,6 @@ const CreativeContainer = ({
 
   const [creative, setCreative] = useState<Document>();
 
-  console.log(`https://alekp141.github.io/creative-dashboard_${selectedCampaign}_${selectedSize}/`)
-
   return (
     <div className="creativeFrame">
       <div className="zoomFunction">
@@ -89,8 +87,7 @@ const CreativeContainer = ({
               }
             }}
             id="iframe"
-            // src={`./campaigns/${selectedCampaign}/${selectedSize}-${selectedCampaign}.html`}
-            src={`https://alekp141.github.io/creative-dashboard_${selectedCampaign}_300x250/`}
+            src={`https://alekp141.github.io/creative-dashboard_${selectedCampaign}_${selectedSize}/`}
           />
         ) : (
           <h2>Error: No file found in this size.</h2>
