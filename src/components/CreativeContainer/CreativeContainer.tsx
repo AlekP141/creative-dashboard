@@ -12,11 +12,11 @@ interface ICreativeContainer {
 
 const fileValidation = async (
   size: string,
-  campaign: string
+  campaign: string,
 ): Promise<boolean> => {
   try {
     const response = await fetch(
-      `/campaigns/${campaign}/${size}-${campaign}.html`
+      `/campaigns/${campaign}/${size}-${campaign}.html`,
     );
     return response.status === 200;
   } catch (error) {
@@ -42,29 +42,31 @@ const CreativeContainer = ({
     validateFile();
   }, [selectedCampaign, selectedSize]);
 
-  const [docScale, setDocScale] = useState(1)
+  const [docScale, setDocScale] = useState(1);
 
   const selectIframeDoc = () => {
-    const creative = selectCreative()
+    const creative = selectCreative();
     const body = creative?.querySelector("body") as HTMLBodyElement;
-    return body
-  }
+    return body;
+  };
 
   const zoomOut = () => {
-    if (docScale >=0.4) {
-      setDocScale(docScale - 0.2)
-      const body = selectIframeDoc()
-      body.style.scale = String(docScale)
+    if (docScale >= 0.4) {
+      setDocScale(docScale - 0.2);
+      const body = selectIframeDoc();
+      body.style.scale = String(docScale);
     }
   };
 
   const zoomIn = () => {
-    setDocScale(docScale + 0.2)
-    const body = selectIframeDoc()
-    body.style.scale = String(docScale)
+    setDocScale(docScale + 0.2);
+    const body = selectIframeDoc();
+    body.style.scale = String(docScale);
   };
 
-  const [creative, setCreative] = useState<Document>()
+  const [creative, setCreative] = useState<Document>();
+
+  console.log(`https://alekp141.github.io/creative-dashboard_${selectedCampaign}_${selectedSize}/`)
 
   return (
     <div className="creativeFrame">
@@ -76,21 +78,19 @@ const CreativeContainer = ({
           <FontAwesomeIcon icon={faPlus} />
         </button>
       </div>
-      <CreativeOptions
-        selectedSize={selectedSize}
-        creative={creative}
-      />
+      <CreativeOptions selectedSize={selectedSize} creative={creative} />
       <div className="creativeContainer">
         {isValidFile ? (
           <iframe
             onLoad={(e) => {
-              const iframe = e.target as HTMLIFrameElement
+              const iframe = e.target as HTMLIFrameElement;
               if (iframe.contentDocument) {
-                setCreative(iframe.contentDocument)
+                setCreative(iframe.contentDocument);
               }
             }}
             id="iframe"
-            src={`./campaigns/${selectedCampaign}/${selectedSize}-${selectedCampaign}.html`}
+            // src={`./campaigns/${selectedCampaign}/${selectedSize}-${selectedCampaign}.html`}
+            src={`https://alekp141.github.io/creative-dashboard_${selectedCampaign}_300x250/`}
           />
         ) : (
           <h2>Error: No file found in this size.</h2>
